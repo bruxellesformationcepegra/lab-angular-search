@@ -1,0 +1,44 @@
+<html ng-app="searchApp">
+    <head>
+        <meta charset="utf-8"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/angucomplete-alt.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+        <script src="js/angucomplete-alt.min.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body ng-controller="SearchController as sc">
+        <div class="container">
+            <h1>Discogs Search</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Search in the Discogs database</div>
+                          <div class="panel-body">
+                            <form>
+                                  <div class="form-group">
+                                    <div angucomplete-alt
+                                        id="search"
+                                        placeholder="Search for artists"
+                                        pause="500"
+                                        selected-object="sc.selectedItem"
+                                        remote-url="https://api.discogs.com/database/search?token=eNaRLNmuBYsOXRDlyKcpCYLwzBFFtmmrThXJFLzX&type=artist&q="
+                                        remote-url-data-field="results"
+                                        title-field="title"
+                                        minlength="2"
+                                        input-class="form-control form-control-small"
+                                        match-class="highlight">
+                                        </div>
+                                  </div>
+                              </form>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div ng-view=""></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
